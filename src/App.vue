@@ -1,38 +1,42 @@
 <template>
   <div id="app">
-    <img alt="OC logo" src="./assets/OC.png">
-  <div id="appTitle">
-    <HelloStudent msg="OC Courses"/>
-  </div>
-  </div>
+    <div id="nav">
+      <h1> Course Navigator </h1>
+    <img alt="OC logo" src="./assets/OC.png" >
+    <br>
+      <router-link to="/">List</router-link>|
+      <router-link to="/courses"> Add </router-link>
+    </div>
+       <router-view />
+
+    <!-- <router-link to="/courses/:id"> 
+    <router-link to="/dept"> 
+      <span>edit</span>
+    </router-link>
+    <span>|</span>
+    <router-link to="/">
+      <span>delete</span>
+    </router-link> -->
+  
+  </div> 
+
 </template>
 
-<script>
-import HelloStudent from './components/HelloWorld.vue'
-
-export default {
-  name: 'App',
-  components: {
-    //you can register components here
-    HelloStudent
-  }
-}
-</script>
 
 <style>
+
+h1 {
+  text-align: center;
+  
+}
 #app {
-  margin-top: 5px;
-  text-align: left;
+  margin-top: 100px;
+  font-size: 25px;
 }
 
-#appTitle, HelloStudent {
+#app, router-link {
   text-align: center;
-  color: #2c3e50;
-  margin-top: -190px;
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  font-size: 40px;
 }
+
 
 </style>
