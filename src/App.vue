@@ -8,7 +8,7 @@
 </template>
 
 <script>
-import HelloStudent from './components/HelloWorld.vue'
+import HelloStudent from './components/welcome.vue'
 
 export default {
   name: 'App',
