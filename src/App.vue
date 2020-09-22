@@ -4,24 +4,18 @@
       <h1> Course Navigator </h1>
     <img alt="OC logo" src="./assets/OC.png" >
     <br>
-      <router-link to="/">List</router-link>|
-      <router-link to="/courses"> Add </router-link>
+      <router-link to="/courseapi/dept"> List </router-link>|
+      <router-link to="/courseapi/courses/add">  Add  </router-link>| 
+      <router-link to="/courseapi/courses/delete"> Delete </router-link>|
     </div>
        <router-view />
-
-    <!-- <router-link to="/courses/:id"> 
-    <router-link to="/dept"> 
-      <span>edit</span>
-    </router-link>
-    <span>|</span>
-    <router-link to="/">
-      <span>delete</span>
-    </router-link> -->
   
   </div> 
 
 </template>
+<script>
 
+</script>
 
 <style>
 
