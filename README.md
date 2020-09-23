@@ -1,5 +1,7 @@
 # vue2
-
+```
+Team 3
+```
 ## Project setup
 ```
 npm install
