@@ -1,12 +1,11 @@
 <template>
   <div>
     <H1>Add Course</H1>
-    <h4>{{ course.dept }} {{ course.course_number }} {{ course.level }} {{ course.hours }} {{ course.name }} {{ course.description }}</h4>
-
+  
     <form @submit.prevent="addcourse">
       Id:
-      <input v-model="course.idNumber" type="text" id="id">
-      <span id="idNumberErr" class="error">{{ errors.idNumber || '*' }}</span>
+      <input v-model="course.id" type="text" id="id">
+      <span id="idErr" class="error">{{ errors.id || '*' }}</span>
       <br>
       <br>Department:
       <input v-model="course.dept" type="text" id="dept">
@@ -14,6 +13,7 @@
       <br>
       <br>Course Number:
       <input v-model="course.course_number" type="text" id="course_number">
+      
       <span id="coursenumberErr" class="error">{{ errors.course_number || '*' }}</span>
       <br>
       <br>Level:
@@ -51,7 +51,7 @@ export default {
   methods: {
     addcourse() {
       axios
-        .post('http://localhost/courseapi/courses/', this.course)
+        .post('http://localhost:8080/courseapi/courses/', this.course)
         .then(() => {
           this.$router.push({ name: 'list' })
         })
@@ -74,5 +74,11 @@ export default {
 <style scoped>
 .error {
   color: #ff0000;
+}
+button {
+  color: firebrick;
+}
+h1 {
+  color: firebrick;
 }
 </style>
