@@ -9,7 +9,7 @@ Vue.use(VueRouter)
 
 const routes = [
   {
-    path: "/courseapi/dept",
+    path: "/courseapi/courses",
     name: "list",
     component: List
   },
@@ -19,7 +19,6 @@ const routes = [
     component: Delete
   },
   //{
-    //Displays courses for one single department
     //path: "/dept/dept",
     //name: "Departments",
     // route level code-splitting

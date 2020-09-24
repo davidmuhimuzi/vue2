@@ -3,7 +3,7 @@
     <!-- This makes one whole instance of one course.dept in courseapi/dept/dept -->
     <h1> Hello... coursedisplay.vue </h1>
 
-    <span>{{ courses.dept }}(</span>
+    <span>{{ course.id }} {{ course.dept }} {{ course.course_number }} {{ course.level }} {{ course.hours }} {{ course.name }} {{ course.description }}</span>
     <router-link :to="{ course: 'edit', params: { id: course.id } }">
       <span> Edit </span>
     </router-link>
@@ -18,7 +18,7 @@
 <script>
 export default {
   props: {
-    course: Object
+    course: []
   }
 }
 //course: {}
