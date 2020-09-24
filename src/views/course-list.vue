@@ -21,9 +21,10 @@ export default {
   },
   created() {
     axios
-      .get("http://localhost:8080/courseapi/dept/" /*+ this.course,*/, { crossOrigin: true })
+      .get("http://localhost:8080/courseapi/dept/" + this.course, { crossOrigin: true })
       .then(response => {
-        this.course = response.data.courses;
+        this.course = response.data[0];
+        
 
       })
       .catch(error => {
