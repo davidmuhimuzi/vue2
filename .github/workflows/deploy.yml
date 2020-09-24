@@ -4,7 +4,7 @@ on:
     pull_request:
         types : [closed]
         branches:
-            - develop
+            - dev-branch
 
 jobs:
     aws-deploy:
@@ -12,7 +12,7 @@ jobs:
         steps:
             - uses: actions/checkout@v2
               with:
-                  ref: develop
+                  ref: dev-branch
             - uses: actions/setup-node@v1
             - run: npm install
             - run: npm run build
@@ -25,3 +25,4 @@ jobs:
                     REMOTE_HOST: "team3.eaglesoftwareteam.com"
                     REMOTE_USER: ubuntu
                     TARGET: "/var/www/html/courses-vue"
+
