@@ -2,16 +2,15 @@
   <div id="app">
     <div id="nav">
       <h1> Course Navigator </h1>
-    <img alt="OC logo" src="./assets/OC.png" height="200px" width="200px" >
-    <br>
+      <img alt="OC logo" src="./assets/OC.png" height="200px" width="200px" >
+      <br>
       <router-link to="/courseapi/courses"> List </router-link>|
       <router-link to="/courseapi/courses/add">  Add  </router-link>| 
       <router-link to="/courseapi/courses/delete"> Delete </router-link>|
     </div>
-       <router-view />
-  
-  </div> 
 
+    <router-view />
+  </div> 
 </template>
 <script>
 
