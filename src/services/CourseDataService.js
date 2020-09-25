@@ -21,6 +21,13 @@ class CourseDataService {
     return http.delete(`/courses/${id}`);
   }
 
+  deleteAll() {
+    return http.delete(`/courses`);
+  }
+
+  getByDept(dept) {
+    return http.get(`/courses?dept=${dept}`);
+  }
 }
 
 export default new CourseDataService();

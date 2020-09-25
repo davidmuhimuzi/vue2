@@ -1,39 +1,25 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <h1> Course Navigator </h1>
-    <img alt="OC logo" src="./assets/OC.png" height="200px" width="199px" >
-    <br>
-   
-      <router-link to="/courseapi/courses"> List </router-link>|
-      <router-link to="/courseapi/courses/add">  Add  </router-link>| 
-      <router-link to="/courseapi/courses/edit">  Edit  </router-link>| 
-      <router-link to="/courseapi/courses/delete"> Delete </router-link>|
-      
+    <nav class="navbar navbar-expand navbar-dark bg-dark">
+      <a href="#" class="navbar-brand">Team 3</a>
+      <div class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a href="/courses" class="nav-link">Courses</a>
+        </li>
+        <li class="nav-item">
+          <a href="/add" class="nav-link">Add</a>
+        </li>
+      </div>
+    </nav>
+
+    <div class="container mt-3">
+      <router-view />
     </div>
-
-    <router-view />
-  </div> 
+  </div>
 </template>
+
 <script>
+export default {
+  name: 'app'
+}
 </script>
-
-<style>
-
-h1 {
-  text-align: center;
-  
-}
-
-
-#app {
-  margin-top: 50px;
-  font-size: 25px;
-}
-
-#app, router-link {
-  text-align: center;
-}
-
-
-</style>

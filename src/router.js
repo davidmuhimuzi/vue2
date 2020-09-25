@@ -7,16 +7,10 @@ export default new Router({
   mode: "history",
   routes: [
     {
-        path: "/",
-        alias: "/welcome",
-        name: "welcome",
-        component: () => import("./components/welcome")
-    },
-    {
       path: "/",
       alias: "/courses",
       name: "courses",
-      component: () => import("./components/CourseList")
+      component: () => import("./components/CoursesList")
     },
     {
       path: "/courses/:id",
@@ -32,6 +26,11 @@ export default new Router({
         path: "/edit",
         name: "edit",
         component: () => import("./components/EditCourse")
-      }
+    },
+    {
+      path: "/delete/:id",
+      name: "delete",
+      component: () => import("./components/DeleteCourse")
+    }
   ]
 });
