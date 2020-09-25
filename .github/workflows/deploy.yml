@@ -20,8 +20,8 @@ jobs:
               uses: easingthemes/ssh-deploy@v2.1.1
               env:
                     SSH_PRIVATE_KEY: ${{ secrets.SERVER_SSH_KEY }}
-                    ARGS: "-rltgoDzvO --delete"
-                    SOURCE: "dist/"
-                    REMOTE_HOST: "team3.eaglesoftwareteam.com"
+                    ARGS: '-rltgoDzvO --delete'
+                    SOURCE: 'dist/'
+                    REMOTE_HOST: 'team3.eaglesoftwareteam.com'
                     REMOTE_USER: ubuntu
-                    TARGET: "/var/www/html/courses-vue"
+                    TARGET: '/var/www/html/courses'
