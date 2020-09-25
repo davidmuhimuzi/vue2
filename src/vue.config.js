@@ -1,5 +1,6 @@
 module.exports = {
-    devServer: {
-      port: 8081
-    }
-  }
+  devServer: {
+    host: 'localhost',
+  },
+  publicPath: process.env.NODE_ENV === 'development' ? '/' : '/courses/',
+};
