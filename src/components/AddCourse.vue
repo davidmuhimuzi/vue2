@@ -2,7 +2,7 @@
   <div>
     <H1>Add Course</H1>
   
-    <form @submit.prevent="addcourse">
+    <form @submit.prevent="saveCourse">
       Id:
       <input v-model="course.id" type="text" id="id">
       <span id="idErr" class="error">{{ errors.id || '*' }}</span>
@@ -39,46 +39,36 @@
 </template>
 
 <script>
-import axios from 'axios'
+import CourseDataService from "../services/CourseDataService";
+
 export default {
+  name: "add-course",
   data() {
     return {
       course: {},
-      errors: {}
-    }
+      submitted: false
+    };
   },
-
   methods: {
-    addcourse() {
-      axios
-        .post('http://localhost:8080/courseapi/courses/', this.course)
-        .then(() => {
-          this.$router.push({ name: 'list' })
+    saveCourse() {
+      TutorialDataService.create(this.course)
+        .then(response => {
+          this.$router.push({ name: 'list' });
         })
-        .catch(error => {
-          if (error.response.status == '406') {
-            this.errors = {}
-            for (let obj of error.response.data) {
-              this.$set(this.errors, obj.attributeName, obj.message)
-            }
-          }
-        })
+        .catch(e => {
+          console.log(e);
+        });
     },
-    cancel() {
-      this.$router.push({ name: 'list' })
+    cancel()  {
+        this.$router.push({ name: 'list' });
     }
-}
-}
+  }
+};
 </script>
 
-<style scoped>
-.error {
-  color: #ff0000;
-}
-button {
-  color: firebrick;
-}
-h1 {
-  color: firebrick;
+<style>
+.submit-form {
+  max-width: 300px;
+  margin: auto;
 }
 </style>
