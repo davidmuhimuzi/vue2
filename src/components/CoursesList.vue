@@ -12,10 +12,10 @@
     </div>
 
     <div class="col-md-6">
-      <h4>Tutorials List</h4>
+      <h4>Courses List</h4>
       <ul class="list-group">
         <li class="list-group-item"
-          :class="{ active: index == currentIndex }"
+          :class="{ active: course.id == currentIndex }"
           v-for="course in courses"
           :key="course.id"
           @click="setActiveCourse(course)"
@@ -28,6 +28,7 @@
         Remove All
       </button>
     </div>
+
     <div class="col-md-6">
       <div v-if="currentCourse">
         <h4>Course</h4>
@@ -41,7 +42,7 @@
           <label><strong>Course Number: </strong></label> {{ currentCourse.course_number }}
         </div>
         <div>
-          <label><strong>Level </strong></label> {{ currentCourse.level }}
+          <label><strong>Level: </strong></label> {{ currentCourse.level }}
         </div>
         <div>
           <label><strong>Hours: </strong></label> {{ currentCourse.hours }}
@@ -53,12 +54,7 @@
           <label><strong>Description:</strong></label> {{ currentCourse.description }}
         </div>
         
-
-        <a class="badge badge-warning"
-          :href="'/courses/' + currentCourse.id"
-        >
-          Edit
-        </a>
+        <a class="badge badge-warning" :href="'/courses/' + currentCourse.id"> Edit </a>
       </div>
       <div v-else>
         <br />
@@ -78,7 +74,7 @@ export default {
       courses: [],
       currentCourse: null,
       currentIndex: -1,
-
+      dept: ''
     };
   },
   methods: {
@@ -104,7 +100,7 @@ export default {
       this.currentIndex = course.id;
     },
 
-    removeAllTutorials() {
+    removeAllCourses() {
       CourseDataService.deleteAll()
         .then(response => {
           console.log(response.data);
@@ -118,7 +114,7 @@ export default {
     searchDept() {
       CourseDataService.getByDept(this.dept)
         .then(response => {
-          this.tutorials = response.data;
+          this.courses = response.data;
           console.log(response.data);
         })
         .catch(e => {

@@ -21,16 +21,6 @@ export default new Router({
       path: "/add",
       name: "add",
       component: () => import("./components/AddCourse")
-    },
-    {
-        path: "/edit",
-        name: "edit",
-        component: () => import("./components/EditCourse")
-    },
-    {
-      path: "/delete/:id",
-      name: "delete",
-      component: () => import("./components/DeleteCourse")
     }
   ]
 });
