@@ -4,9 +4,8 @@
       <div class="input-group mb-3">
         <input type="text" class="form-control" placeholder="Search by department" v-model="dept"/>
         <div class="input-group-append">
-          <button class="btn btn-outline-secondary" type="button" @click="searchDept" >
-            Search
-          </button>
+          <v-btn color="secondary" class="mt-3" @click="searchDept">Submit</v-btn>
+          
         </div>
       </div>
     </div>
@@ -54,7 +53,7 @@
           <label><strong>Description:</strong></label> {{ currentCourse.description }}
         </div>
         
-        <a class="badge badge-warning" :href="'/courses/' + currentCourse.id"> Edit </a>
+        <a class="badge badge-warning" :href="'/courses/' + currentCourse.id"> Edit or Delete</a>
       </div>
       <div v-else>
         <br />

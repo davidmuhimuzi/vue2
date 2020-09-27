@@ -1,71 +1,76 @@
 <template>
-  <div v-if="currentCourse" class="edit-form">
-    <h4>Course</h4>
-    <form>
-      <div class="form-group">
-        <label for="id">ID</label>
-        <input type="text" class="form-control" id="id"
-          v-model="currentCourse.id"
-        />
-      </div>
-      <div class="form-group">
-        <label for="dept">Department</label>
-        <input type="text" class="form-control" id="id"
-          v-model="currentCourse.dept"
-        />
-      </div>
-      <div class="form-group">
-        <label for="course_number">Course Number</label>
-        <input type="text" class="form-control" id="course_number"
-          v-model="currentCourse.course_number"
-        />
-      </div>
-      <div class="form-group">
-        <label for="level">Level</label>
-        <input type="text" class="form-control" id="level"
-          v-model="currentCourse.level"
-        />
-      </div>
-      <div class="form-group">
-        <label for="hours">Hours</label>
-        <input type="text" class="form-control" id="hours"
-          v-model="currentCourse.hours"
-        />
-      </div>
-      <div class="form-group">
-        <label for="name">Name</label>
-        <input type="text" class="form-control" id="name"
-          v-model="currentCourse.name"
-        />
-      </div>
-      <div class="form-group">
-        <label for="description">Description</label>
-        <input type="text" class="form-control" id="description"
-          v-model="currentCourse.description"
-        />
-      </div>
+  <div v-if="currentCourse" class="edit-form py-3">
+
+    <h4> Edit Course {{currentCourse.course_number}} : </h4>
+
+      <v-form ref="form" lazy-validation>
+    <v-text-field
+        v-model="currentCourse.id"
+        :rules="[(v) => !!v || 'ID is required']"
+        label="ID"
+        required
+      ></v-text-field>
+
+      <v-text-field
+        v-model="currentCourse.dept"
+        :rules="[(v) => !!v || 'Department is required']"
+        label="Department"
+        required
+      ></v-text-field>
+
+        <v-text-field
+        v-model="currentCourse.course_number"
+        :rules="[(v) => !!v || 'Course # is required']"
+        label="Course Number"
+        required
+      ></v-text-field>
+
+        <v-text-field
+        v-model="currentCourse.level"
+        :rules="[(v) => !!v || 'level is required']"
+        label="Level"
+        required
+      ></v-text-field>
+
+        <v-text-field
+        v-model="currentCourse.hours"
+        :rules="[(v) => !!v || 'Hours is required']"
+        label="Hours"
+        required
+      ></v-text-field>
+
+        <v-text-field
+        v-model="currentCourse.name"
+        :rules="[(v) => !!v || 'Name is required']"
+        label="Name"
+        required
+      ></v-text-field>
+
+        <v-text-field
+        v-model="currentCourse.description"
+        :rules="[(v) => !!v || 'Description is required']"
+        label="Description"
+        required
+      ></v-text-field> 
+
+      <v-divider class="my-5"></v-divider>
+      <v-btn color="error" small class="mr-2" @click="deleteCourse">
+        Delete
+      </v-btn>
+    <v-btn color="success" small @click="updateCourse">
+        Update
+      </v-btn>
 
 
-    </form>
-
-    <button class="badge badge-danger mr-2"
-      @click="deleteTutorial"
-    >
-      Delete
-    </button>
-
-    <button type="submit" class="badge badge-success"
-      @click="updateTutorial"
-    >
-      Update
-    </button>
+     </v-form>
     <p>{{ message }}</p>
   </div>
 
   <div v-else>
     <br />
-    <p>Please click on a Tutorial...</p>
+    <p>Please click on a Course...</p>
   </div>
+
 </template>
 
 <script>
@@ -79,7 +84,7 @@ export default {
     };
   },
   methods: {
-    getTutorial(id) {
+    getCourse(id) {
       CourseDataService.get(id)
         .then(response => {
           this.currentCourse = response.data;
@@ -90,22 +95,23 @@ export default {
         });
     },
 
-    updateTutorial() {
+    updateCourse() {
       CourseDataService.update(this.currentCourse.id, this.currentCourse)
         .then(response => {
           console.log(response.data);
           this.message = 'The course was updated successfully!';
+          
         })
         .catch(e => {
           console.log(e);
         });
     },
 
-    deleteTutorial() {
+    deleteCourse() {
       CourseDataService.delete(this.currentCourse.id)
         .then(response => {
           console.log(response.data);
-          this.$router.push({ name: "courses" });
+          this.$router.push({ name: "list" });
         })
         .catch(e => {
           console.log(e);
@@ -114,12 +120,16 @@ export default {
   },
   mounted() {
     this.message = '';
-    this.getTutorial(this.$route.params.id);
+    this.getCourse(this.$route.params.id);
   }
 };
 </script>
 
 <style>
+h4 {
+  font-size: 25px;
+  text-align: center;
+}
 .edit-form {
   max-width: 300px;
   margin: auto;

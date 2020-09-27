@@ -1,25 +1,64 @@
 <template>
-  <div id="app">
-    <nav class="navbar navbar-expand navbar-dark bg-dark">
-      <a href="#" class="navbar-brand">Team 3</a>
-      <div class="navbar-nav mr-auto">
-        <li class="nav-item">
-          <a href="/courses" class="nav-link">Courses</a>
-        </li>
-        <li class="nav-item">
-          <a href="/add" class="nav-link">Add</a>
-        </li>
+  <v-app>
+    <v-app-bar
+      app
+      absolute
+      color="#B22222"
+      dark
+      elevation-18
+      extended
+      tile
+      extension-height="20"
+    >
+      <div class="d-flex align-center">
+        <v-img
+          alt="OC Logo"
+          class="shrink mr-2"
+          contain
+          src="./assets/OC.png"
+          transition="scale-transition"
+          width="60"
+        />
+    <v-toolbar-title> 
+      Team 3
+    </v-toolbar-title>
       </div>
-    </nav>
+      <v-spacer></v-spacer>
+      <v-btn
+        href="/courses"
+        target="_blank"
+        text-lg-right
+      >
+        <span class="mr-2">
+        <v-icon>mdi-home</v-icon>
+        </span>
+      </v-btn>
+    
+       <v-btn
+        href="/add"
+        target="_blank"
+        text-lg-right
+      >
+        <span class="mr-2">
+        <v-icon>mdi-plus</v-icon>
+        </span>
+      </v-btn>
+      
+    </v-app-bar>
 
-    <div class="container mt-3">
-      <router-view />
-    </div>
-  </div>
+    <v-main>
+      <router-view/>
+    </v-main>
+  </v-app>
 </template>
 
 <script>
+
 export default {
-  name: 'app'
-}
+  name: 'App',
+
+  data: () => ({
+    //
+  }),
+};
 </script>
