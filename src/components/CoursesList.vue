@@ -23,9 +23,7 @@
         </li>
       </ul>
 
-      <button class="m-3 btn btn-sm btn-danger" @click="removeAllCourses">
-        Remove All
-      </button>
+      
     </div>
 
     <div class="col-md-6">
@@ -52,8 +50,9 @@
         <div>
           <label><strong>Description:</strong></label> {{ currentCourse.description }}
         </div>
-        
-        <a class="badge badge-warning" :href="'/courses/' + currentCourse.id"> Edit or Delete</a>
+        <!-- test --> 
+        <!--v-btn color="primary" class="mt-3" :href='/courses' @click="saveCourse">Submit</v-btn-->
+        <a class="badge badge-warning" :href=" '/courses/' + this.currentCourse.id"> Edit or Delete</a>
       </div>
       <div v-else>
         <br />
@@ -99,16 +98,7 @@ export default {
       this.currentIndex = course.id;
     },
 
-    removeAllCourses() {
-      CourseDataService.deleteAll()
-        .then(response => {
-          console.log(response.data);
-          this.refreshList();
-        })
-        .catch(e => {
-          console.log(e);
-        });
-    },
+  
     
     searchDept() {
       CourseDataService.getByDept(this.dept)

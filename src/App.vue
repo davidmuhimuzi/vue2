@@ -26,7 +26,6 @@
       <v-spacer></v-spacer>
       <v-btn
         href="/courses"
-        target="_blank"
         text-lg-right
       >
         <span class="mr-2">
@@ -36,7 +35,7 @@
     
        <v-btn
         href="/add"
-        target="_blank"
+       
         text-lg-right
       >
         <span class="mr-2">
