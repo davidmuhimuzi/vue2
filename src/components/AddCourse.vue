@@ -3,10 +3,6 @@
     <H1>Add an OC Course</H1>
 
     <form @submit.prevent="saveCourse">
-      <v-text-field 
-      v-model="course.id" 
-      label="ID" 
-      required></v-text-field>
 
       <v-text-field
         v-model="course.dept"
@@ -67,9 +63,11 @@ export default {
   },
   methods: {
     saveCourse() {
+      console.log(this.course)
       CourseDataService.create(this.course)
         .then(() => {
           this.$router.push({ name: "list" });
+          console.log(this.data)
         })
         .catch((e) => {
           console.log(e);
