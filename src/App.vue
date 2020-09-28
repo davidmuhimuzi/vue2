@@ -34,7 +34,7 @@
       </v-btn>
     
        <v-btn
-        to="/courses/add"
+        to="/add"
        
         text-lg-right
       >
