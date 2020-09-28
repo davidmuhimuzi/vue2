@@ -4,12 +4,6 @@
     <h4> Edit Course {{currentCourse.course_number}} : </h4>
 
       <v-form ref="form" lazy-validation>
-    <v-text-field
-        v-model="currentCourse.id"
-        :rules="[(v) => !!v || 'ID is required']"
-        label="ID"
-        required
-      ></v-text-field>
 
       <v-text-field
         v-model="currentCourse.dept"
