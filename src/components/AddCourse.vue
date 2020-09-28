@@ -58,7 +58,7 @@ export default {
   data() {
     return {
       course: {}
-      //submitted: false,
+  
     };
   },
   methods: {
