@@ -50,8 +50,8 @@
         <div>
           <label><strong>Description:</strong></label> {{ currentCourse.description }}
         </div>
-        <!-- test --> 
-        <!--v-btn color="primary" class="mt-3" :href='/courses' @click="saveCourse">Submit</v-btn-->
+       
+       
         <a class="badge badge-warning" :href=" '/courses/' + this.currentCourse.id"> Edit or Delete</a>
       </div>
       <div v-else>
