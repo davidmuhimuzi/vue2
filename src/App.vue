@@ -25,7 +25,7 @@
       </div>
       <v-spacer></v-spacer>
       <v-btn
-        href="/"
+        to="/"
         text-lg-right
       >
         <span class="mr-2">
@@ -34,7 +34,7 @@
       </v-btn>
     
        <v-btn
-        href="/add"
+        to="/add"
        
         text-lg-right
       >

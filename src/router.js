@@ -10,7 +10,7 @@ export default new Router({
   routes: [
     {
       path: "/",
-      name: "list", //changed name to list instead of course
+      name: "list", //keep
       component: () => import("./components/CoursesList")
     },
     {
