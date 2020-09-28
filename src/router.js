@@ -9,7 +9,7 @@ export default new Router({
   
   routes: [
     {
-      path: "/courses",
+      path: "/",
       name: "list", //changed name to list instead of course
       component: () => import("./components/CoursesList")
     },

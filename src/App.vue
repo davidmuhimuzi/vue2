@@ -25,7 +25,7 @@
       </div>
       <v-spacer></v-spacer>
       <v-btn
-        href="/courses"
+        href="/"
         text-lg-right
       >
         <span class="mr-2">
