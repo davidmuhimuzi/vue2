@@ -9,8 +9,8 @@ export default new Router({
   
   routes: [
     {
-      path: "/",
-      alias: "/courses",
+      path: "/courses", //changed from / to /courses
+      //alias: "/courses",
       name: "list", //keep
       component: () => import("./components/CoursesList")
     },
