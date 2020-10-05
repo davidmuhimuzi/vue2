@@ -9,13 +9,16 @@ export default new Router({
   
   routes: [
     {
-      path: "/courses", //changed from / to /courses
+      path: "/",
       //alias: "/courses",
       name: "list", //keep
       component: () => import("./components/CoursesList")
+      //path: /courses with name list (doesnt work) for edit delete only gives me app.vue
+      //path: / with name list and alias /courses (doesnt work)
+      //path: / with name list and no alias and /:id below
     },
     {
-      path: "/courses/:id",
+      path: "/:id", //changed from /courses/:id since /courses/ is base 
       name: "course-details",
       component: () => import("./components/Course")
     },
