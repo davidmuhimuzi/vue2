@@ -1,7 +1,8 @@
 <template>
+
   <div v-if="currentCourse" class="edit-form py-3">
 
-    <h4> Edit Course {{currentCourse.course_number}} : </h4>
+   
 
       <v-form ref="form" lazy-validation>
 
@@ -63,6 +64,7 @@
   <div v-else>
     <br />
     <p>Please click on a Course...</p>
+    
   </div>
 
 </template>

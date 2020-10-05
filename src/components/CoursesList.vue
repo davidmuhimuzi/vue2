@@ -52,7 +52,7 @@
         </div>
        
        
-        <a class="badge badge-warning" :href=" '/courses/' + this.currentCourse.id"> Edit or Delete</a>
+        <a class="badge badge-warning" :href="'/courses/' + currentCourse.id"> Edit or Delete</a>
       </div>
       <div v-else>
         <br />
