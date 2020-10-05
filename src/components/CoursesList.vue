@@ -50,9 +50,9 @@
         <div>
           <label><strong>Description:</strong></label> {{ currentCourse.description }}
         </div>
-       
-       
-        <a class="badge badge-warning" :href="'/courses/' + currentCourse.id"> Edit or Delete</a>
+        <a :href="'/courses/'+ currentCourse.id">Edit or Delete </a>
+       <!--a class="badge badge-warning" :href="'/courses/' + currentCourse.id"> Edit or Delete</a-->
+   
       </div>
       <div v-else>
         <br />
