@@ -50,7 +50,7 @@
         <div>
           <label><strong>Description:</strong></label> {{ currentCourse.description }}
         </div>
-        <a :href="'/courses/'+ currentCourse.id">Edit or Delete </a>
+        <a :href="'/courses/'+ currentIndex">Edit or Delete </a>
        <!--a class="badge badge-warning" :href="'/courses/' + currentCourse.id"> Edit or Delete</a-->
    
       </div>
@@ -97,8 +97,6 @@ export default {
       this.currentCourse = course;
       this.currentIndex = course.id;
     },
-
-  
     
     searchDept() {
       CourseDataService.getByDept(this.dept)
