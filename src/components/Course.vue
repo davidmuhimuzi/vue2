@@ -121,7 +121,9 @@ export default {
   },
   mounted() {
     this.message = '';
+    console.log(this.$route.params.id);
     this.getCourse(this.$route.params.id);
+    
   }
 };
 </script>
