@@ -131,10 +131,10 @@ export default {
         this.pageSize
       );
 
-      CourseDataService.getAll(params)
+        CourseDataService.getAll(params)
         .then((response) => {
           const { courses, totalItems } = response.data;
-          this.courses=courses;
+          this.courses = courses;
           this.count = totalItems;
 
           console.log(response.data);
