@@ -133,8 +133,8 @@ export default {
 
       CourseDataService.getAll(params)
         .then((response) => {
-          const { tutorials, totalItems } = response.data;
-          this.tutorials=tutorials;
+          const { courses, totalItems } = response.data;
+          this.courses=courses;
           this.count = totalItems;
 
           console.log(response.data);
