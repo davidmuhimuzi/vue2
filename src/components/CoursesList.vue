@@ -10,7 +10,7 @@
       </div>
     </div>
 
-    <div class="col-md-6">
+    <div class="col-md-5">
       <h4>Courses List</h4>
       <ul class="list-group">
         <li class="list-group-item"
@@ -26,7 +26,7 @@
       
     </div>
 
-    <div class="col-md-6">
+    <div class="col-md-4">
       <div v-if="currentCourse">
         <h4>Course</h4>
         <div>
