@@ -1,17 +1,16 @@
 <template>
   <div class="list row">
-    <div class="col-md-8">
+    <div class="col-md-9">
       <div class="input-group mb-3">
         <input type="text" class="form-control" placeholder="Search by department" v-model="dept"/>
         <div class="input-group-append">
           <v-btn color="secondary" class="mt-3" @click="searchDept">Submit</v-btn>
-          
+          <h4>Courses List</h4>
         </div>
       </div>
     </div>
 
-    <div class="col-md-5">
-      <h4>Courses List</h4>
+    <div class="col-md-4">
       <ul class="list-group">
         <li class="list-group-item"
           :class="{ active: course.id == currentIndex }"
@@ -118,7 +117,7 @@ export default {
 <style>
 .list {
   text-align: left;
-  max-width: 750px;
-  margin: auto;
+  max-width: 1400px;
+  margin: fixed;
 }
 </style>
