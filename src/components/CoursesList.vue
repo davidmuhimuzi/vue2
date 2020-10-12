@@ -50,7 +50,7 @@
         <div>
           <label><strong>Description:</strong></label> {{ currentCourse.description }}
         </div>
-        <a :href="'/courses/'+ currentIndex">Edit or Delete </a>
+        <v-btn @click="editCourse">Edit and Delete</v-btn>
        <!--a class="badge badge-warning" :href="'/courses/' + currentCourse.id"> Edit or Delete</a-->
    
       </div>
@@ -96,6 +96,7 @@ export default {
     setActiveCourse(course) {
       this.currentCourse = course;
       this.currentIndex = course.id;
+      //this.$router.push({ params: { id: id } });
     },
     
     searchDept() {
@@ -107,6 +108,10 @@ export default {
         .catch(e => {
           console.log(e);
         });
+    },
+
+    editCourse() {
+      this.$router.push({ name: 'course-details', params: { id: this.currentIndex } })
     }
   },
   mounted() {
