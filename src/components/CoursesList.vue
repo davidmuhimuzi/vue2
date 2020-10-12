@@ -94,7 +94,7 @@ export default {
       courses: [],
       currentCourse: null,
       currentIndex: -1,
-      dept: '',
+      dept: null,
 
       page: 1,
       count: 0,
@@ -146,6 +146,12 @@ export default {
 
     handlePageChange(value) {
       this.page = value;
+      this.retrieveCourses();
+    },
+
+     handlePageSizeChange(event) {
+      this.pageSize = event.target.value;
+      this.page = 1;
       this.retrieveCourses();
     },
 
