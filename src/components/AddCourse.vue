@@ -41,7 +41,11 @@
         label="Description"
         required
       ></v-text-field>
-
+      <v-text-field
+        v-model="course.when_off"
+        label="Offered"
+        required
+      ></v-text-field>
        </form>
   <v-divider class="my-5"></v-divider>
       <v-btn color="primary" class="mt-3" @click="saveCourse">Submit</v-btn>

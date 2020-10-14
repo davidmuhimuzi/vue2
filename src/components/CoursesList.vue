@@ -49,8 +49,11 @@
         <div>
           <label><strong>Description:</strong></label> {{ currentCourse.description }}
         </div>
+        <div>
+           <label><strong>Offered:</strong></label> {{ currentCourse.when_off }}
+        </div>
         <v-btn @click="editCourse">Edit and Delete</v-btn>
-       <!--a class="badge badge-warning" :href="'/courses/' + currentCourse.id"> Edit or Delete</a-->
+       
    
       </div>
       <div v-else>
