@@ -4,13 +4,32 @@
       <div class="input-group mb-3">
         <input type="text" class="form-control" placeholder="Search by department" v-model="dept"/>
         <div class="input-group-append">
-          <v-btn color="secondary" class="mt-3" @click="searchDept">Submit</v-btn>
-          <h4>Courses List</h4>
+          <v-btn class="mt-3" @click="searchDept">Submit</v-btn>
         </div>
       </div>
     </div>
 
-    <div class="col-md-4">
+     <div class="col-md-12">
+      <div class="mb-3">
+        Items per Page:
+        <select v-model="pageSize" @change="handlePageSizeChange($event)">
+          <option v-for="size in pageSizes" :key="size" :value="size">
+            {{ size }}
+          </option>
+        </select>
+      </div>
+        <b-pagination
+        v-model="page"
+        :total-rows="count"
+        :per-page="pageSize"
+        prev-text="Prev"
+        next-text="Next"
+        @change="handlePageChange"
+      ></b-pagination>
+    </div>
+
+    <div class="col-md-6">
+      <h4>Courses List</h4>
       <ul class="list-group">
         <li class="list-group-item"
           :class="{ active: course.id == currentIndex }"
@@ -71,19 +90,65 @@ export default {
       courses: [],
       currentCourse: null,
       currentIndex: -1,
-      dept: ''
+      dept: null,
+
+      page: 1,
+      count: 0,
+      pageSize: 3,
+
+      pageSizes: [3,6,9],
     };
   },
   methods: {
+    getRequestParams(searchDept,page, pageSize) {
+      let params = {};
+
+      if (searchDept) {
+        params["dept"]= searchDept;
+      }
+
+      if (page) {
+        params["page"] = page -1;
+      }
+
+      if (pageSize) {
+        params["size"] = pageSize;
+      }
+
+      return params;
+    },
+
+
+
     retrieveCourses() {
-      CourseDataService.getAll()
-        .then(response => {
-          this.courses = response.data;
+      const params = this.getRequestParams(
+        this.searchDept,
+        this.page,
+        this.pageSize
+      );
+
+        CourseDataService.getAll(params)
+        .then((response) => {
+          const { courses, totalItems } = response.data;
+          this.courses = courses;
+          this.count = totalItems;
+
           console.log(response.data);
         })
-        .catch(e => {
+        .catch((e) => {
           console.log(e);
         });
+    },
+
+    handlePageChange(value) {
+      this.page = value;
+      this.retrieveCourses();
+    },
+
+     handlePageSizeChange(event) {
+      this.pageSize = event.target.value;
+      this.page = 1;
+      this.retrieveCourses();
     },
 
     refreshList() {
