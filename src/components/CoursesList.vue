@@ -1,14 +1,24 @@
 <template>
   <div class="list row">
     <div class="col-md-8">
-      <div class="input-group mb-3">
-        <input type="text" class="form-control" placeholder="Search by department" v-model="dept"/>
-        <div class="input-group-append">
-          <v-btn color="secondary" class="mt-3" @click="searchDept">Submit</v-btn>
-          
+        <div class="input-group mb-3">
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Search by Department"
+            v-model="searchDept"
+          />
+          <div class="input-group-append">
+            <button
+              class="btn btn-outline-secondary"
+              type="button"
+              @click="page = 1; retrieveCourses();"
+            >
+              Search
+            </button>
+          </div>
         </div>
       </div>
-    </div>
 
      <div class="col-md-12">
       <div class="mb-3">
@@ -23,8 +33,7 @@
         v-model="page"
         :total-rows="count"
         :per-page="pageSize"
-        prev-text="Prev"
-        next-text="Next"
+        pills
         @change="handlePageChange"
       ></b-pagination>
     </div>
@@ -34,7 +43,7 @@
 
     <div class="col-md-6">
       <h4>Courses List</h4>
-      <ul class="list-group">
+      <ul class="list-group" id="courses-list">
         <li class="list-group-item"
           :class="{ active: course.id == currentIndex }"
           v-for="course in courses"
@@ -94,7 +103,7 @@ export default {
       courses: [],
       currentCourse: null,
       currentIndex: -1,
-      dept: null,
+      searchDept: "",
 
       page: 1,
       count: 0,
@@ -165,17 +174,6 @@ export default {
       this.currentCourse = course;
       this.currentIndex = course.id;
     },
-    
-    searchDept() {
-      CourseDataService.getByDept(this.dept)
-        .then(response => {
-          this.courses = response.data;
-          console.log(response.data);
-        })
-        .catch(e => {
-          console.log(e);
-        });
-    }
   },
   mounted() {
     this.retrieveCourses();
