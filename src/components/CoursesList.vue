@@ -14,7 +14,7 @@
               type="button"
               @click="page = 1; retrieveCourses();"
             >
-              Search
+             
             </button>
           </div>
         </div>
