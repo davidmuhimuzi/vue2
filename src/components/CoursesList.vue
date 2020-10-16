@@ -14,7 +14,7 @@
               type="button"
               @click="page = 1; retrieveCourses();"
             >
-              Search
+             Search
             </button>
           </div>
         </div>
@@ -104,9 +104,9 @@ export default {
 
       page: 1,
       count: 0,
-      pageSize: 3,
+      pageSize: 5,
 
-      pageSizes: [3,6,9],
+      pageSizes: [5,10,15],
     };
   },
   methods: {
