@@ -4,13 +4,6 @@
 
       <v-form ref="form" lazy-validation>
 
-      <!--v-text-field
-        v-model="currentCourse.id"
-        :rules="[(v) => !!v || 'ID is required']"
-        label="ID"
-        required
-      ></v-text-field-->
-
       <v-text-field
         v-model="currentCourse.dept"
         :rules="[(v) => !!v || 'Department is required']"
@@ -53,6 +46,12 @@
         required
       ></v-text-field> 
 
+        <v-text-field
+        v-model="currentCourse.when_off"
+        :rules="[(v) => !!v || 'Offered is required']"
+        label="Offered"
+        required
+      ></v-text-field> 
       <v-divider class="my-5"></v-divider>
       <v-btn color="error" small class="mr-2" @click="deleteCourse">
         Delete
