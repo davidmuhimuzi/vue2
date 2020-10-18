@@ -4,13 +4,6 @@
 
       <v-form ref="form" lazy-validation>
 
-      <!--v-text-field
-        v-model="currentCourse.id"
-        :rules="[(v) => !!v || 'ID is required']"
-        label="ID"
-        required
-      ></v-text-field-->
-
       <v-text-field
         v-model="currentCourse.dept"
         :rules="[(v) => !!v || 'Department is required']"
