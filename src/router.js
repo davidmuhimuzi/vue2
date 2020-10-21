@@ -10,7 +10,7 @@ export default new Router({
   routes: [
     {
       path: "/",
-      name: "list", //keep
+      name: "list",
       component: () => import("./components/CoursesList")
       
     },
@@ -24,6 +24,26 @@ export default new Router({
       name: "add",
       target: "add",
       component: () => import("./components/AddCourse")
+    },
+
+    {
+      path: "/majorlist",
+      name: "majorlist",
+      component: () => import("./components/MajorsList")
+      
+    },
+/*    
+    {
+      path: "/majoredit/:id",  
+      name: "majoredit",
+      component: () => import("./components/Course")
+    },
+
+    {
+      path: "/majoradd",
+      name: "majoradd",
+      component: () => import("./components/AddCourse")
     }
+*/
   ]
 });
