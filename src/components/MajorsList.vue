@@ -1,5 +1,14 @@
 <template>
   <div class="list row">
+    <v-btn
+          to="/majoradd"
+        
+          text-lg-right
+        >
+          <span class="mr-2">
+          <v-icon>mdi-plus</v-icon>
+          </span>
+        </v-btn>
 
      <div class="col-md-12">
       <div class="mb-3">
