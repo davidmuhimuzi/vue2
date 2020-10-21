@@ -138,7 +138,7 @@ export default {
     },
 
     editMajor() {
-      //this.$router.push({ name: 'major-details', params: { id: this.currentIndex } })
+      this.$router.push({ name: 'majoredit', params: { id: this.currentIndex } })
     }
   },
   mounted() {
