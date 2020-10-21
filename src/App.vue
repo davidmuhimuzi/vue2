@@ -25,11 +25,19 @@
       </div>
       <v-spacer></v-spacer>
       <v-btn
+        to="/majorlist"
+        text-lg-right
+      >
+        <span class="mr-2">
+        <v-icon>Majors</v-icon>
+        </span>
+      </v-btn>
+      <v-btn
         to="/"
         text-lg-right
       >
         <span class="mr-2">
-        <v-icon>mdi-home</v-icon>
+        <v-icon>Courses</v-icon>
         </span>
       </v-btn>
     

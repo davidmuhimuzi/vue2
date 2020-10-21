@@ -32,18 +32,18 @@ export default new Router({
       component: () => import("./components/MajorsList")
       
     },
-/*    
+    
     {
       path: "/majoredit/:id",  
       name: "majoredit",
-      component: () => import("./components/Course")
+      component: () => import("./components/Major")
     },
 
     {
       path: "/majoradd",
       name: "majoradd",
-      component: () => import("./components/AddCourse")
+      component: () => import("./components/AddMajor")
     }
-*/
+
   ]
 });
