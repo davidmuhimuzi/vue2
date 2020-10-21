@@ -11,19 +11,26 @@ export default new Router({
     {
       path: "/",
       name: "list", //keep
-      component: () => import("./components/CoursesList")
+      component: () => import("./components/course/CoursesList")
       
     },
     {
       path: "/courses/:id",  
       name: "course-details",
-      component: () => import("./components/Course")
+      component: () => import("./components/course/Course")
     },
     {
       path: "/add",
       name: "add",
       target: "add",
-      component: () => import("./components/AddCourse")
+      component: () => import("./components/course/AddCourse")
+    },
+
+    {
+      path: "/addsemester",
+      name: "addsemester",
+      target: "addsemester",
+      component: () => import("./components/semester/AddSemester")
     }
   ]
 });

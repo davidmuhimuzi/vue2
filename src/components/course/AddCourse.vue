@@ -41,6 +41,11 @@
         label="Description"
         required
       ></v-text-field>
+        <v-text-field
+        v-model="course.when_off"
+        label="Offered"
+        required
+      ></v-text-field>
 
        </form>
   <v-divider class="my-5"></v-divider>
