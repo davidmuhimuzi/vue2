@@ -40,17 +40,6 @@
         <v-icon>Courses</v-icon>
         </span>
       </v-btn>
-    
-       <v-btn
-        to="/add"
-       
-        text-lg-right
-      >
-        <span class="mr-2">
-        <v-icon>mdi-plus</v-icon>
-        </span>
-      </v-btn>
-      
     </v-app-bar>
 
     <v-main>

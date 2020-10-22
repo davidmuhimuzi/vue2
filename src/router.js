@@ -23,7 +23,7 @@ export default new Router({
       path: "/add",
       name: "add",
       target: "add",
-      component: () => import("./components/AddCourse")
+      component: () => import("./components/CourseAdd")
     },
 
     {
@@ -42,7 +42,7 @@ export default new Router({
     {
       path: "/majoradd",
       name: "majoradd",
-      component: () => import("./components/AddMajor")
+      component: () => import("./components/MajorAdd")
     }
 
   ]
