@@ -1,18 +1,11 @@
 <template>
+  
   <div class="list row">
-    <v-btn
-          to="/majoradd"
-        
-          text-lg-right
-        >
-          <span class="mr-2">
-          <v-icon>mdi-plus</v-icon>
-          </span>
-        </v-btn>
+    
 
      <div class="col-md-12">
       <div class="mb-3">
-        Items per Page:
+        Majors per Page:
         <select v-model="pageSize" @change="handlePageSizeChange($event)">
           <option v-for="size in pageSizes" :key="size" :value="size">
             {{ size }}
@@ -29,7 +22,18 @@
     </div>
 
     <div class="col-md-6">
-      <h4>Majors List</h4>
+      
+      <h4>Majors List 
+        <v-btn
+          to="/majoradd"
+          class="add-button"
+          text-lg-right
+        >
+        <span class="mr-2">
+        <v-icon>mdi-plus</v-icon>
+        </span>
+        </v-btn>
+      </h4>
       <ul class="list-group" id="majors-list">
         <li class="list-group-item"
           :class="{ active: major.id == currentIndex }"
@@ -61,7 +65,6 @@
         </div>
         
         <v-btn @click="editMajor">Edit and Delete</v-btn>
-       <!--a class="badge badge-warning" :href="'/courses/' + currentCourse.id"> Edit or Delete</a-->
    
       </div>
       <div v-else>
@@ -161,5 +164,10 @@ export default {
   text-align: left;
   max-width: 1400px;
   margin: fixed;
+}
+
+.add-button {
+  margin-left:71%; 
+  margin-right:0;
 }
 </style>
