@@ -23,14 +23,26 @@ export default new Router({
       path: "/add",
       name: "add",
       target: "add",
-      component: () => import("./components/course/AddCourse")
+      component: () => import("./components/CourseAdd")
     },
 
     {
-      path: "/addsemester",
-      name: "addsemester",
-      target: "addsemester",
-      component: () => import("./components/semester/AddSemester")
+      path: "/majorlist",
+      name: "majorlist",
+      component: () => import("./components/MajorsList")
+      
+    },
+    
+    {
+      path: "/majoredit/:id",  
+      name: "majoredit",
+      component: () => import("./components/Major")
+    },
+
+    {
+      path: "/majoradd",
+      name: "majoradd",
+      component: () => import("./components/MajorAdd")
     }
   ]
 });

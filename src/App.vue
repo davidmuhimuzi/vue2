@@ -42,18 +42,6 @@
         <v-icon>mdi-plus</v-icon>
         </span>
       </v-btn>
-
-      <v-btn
-        to="/addsemester"
-       
-        text-lg-right
-      >
-        <span class="mr-2">
-        <v-icon>mdi-plus</v-icon>
-        </span>
-      </v-btn>
-
-      
     </v-app-bar>
 
     <v-main>
