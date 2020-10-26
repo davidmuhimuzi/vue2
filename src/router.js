@@ -42,7 +42,7 @@ export default new Router({
     {
       path: "/majoradd",
       name: "majoradd",
-      component: () => import("./components/AddMajor")
+      component: () => import("./components/MajorAdd")
     },
     {
       path: "/advisors",

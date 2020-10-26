@@ -45,9 +45,7 @@
         <v-icon>Courses</v-icon>
         </span>
       </v-btn>
-
   
-
       <v-btn
         to="/advisors"
         text-lg-right
