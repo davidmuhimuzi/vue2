@@ -23,7 +23,7 @@ export default new Router({
       path: "/add",
       name: "add",
       target: "add",
-      component: () => import("./components/AddCourse")
+      component: () => import("./components/CourseAdd")
     },
 
     {

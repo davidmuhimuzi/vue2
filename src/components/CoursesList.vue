@@ -28,7 +28,7 @@
         <div class="mb-3">
           <v-btn @click="download()">Download PDF </v-btn>
           <br />
-          Items per Page:
+          Courses per Page:
           <select v-model="pageSize" @change="handlePageSizeChange($event)">
               <option v-for="size in pageSizes" :key="size" :value="size">
            {{ size }}
@@ -46,7 +46,17 @@
       </div>
 
       <div class="col-md-6">
-        <h4>Courses List</h4>
+        <h4>Courses List
+          <v-btn
+            to="/add"
+            class="add-button"
+            text-lg-right
+          >
+            <span class="mr-2">
+            <v-icon>mdi-plus</v-icon>
+            </span>
+          </v-btn>
+        </h4>
         <ul class="list-group" id="courses-list">
           <li
             class="list-group-item"
@@ -232,5 +242,10 @@ export default {
   text-align: left;
   max-width: 1400px;
   margin: fixed;
+}
+
+.add-button {
+  margin-left:69%; 
+  margin-right:0;
 }
 </style>
