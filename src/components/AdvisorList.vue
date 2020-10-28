@@ -1,15 +1,5 @@
 <template>
   <div class="list row">
-    <v-btn
-          to="/advisoradd"
-          class="add-button"
-          text-lg-right
-        >
-        <span class="mr-2">
-        <v-icon>mdi-plus</v-icon>
-        </span>
-        </v-btn>
- 
      <div class="col-md-12">
       <div class="mb-3">
         Advisors per Page:
@@ -29,16 +19,25 @@
     </div>
 
       <div class="col-md-6">
-       <h4>Advisor List </h4>
+       <h4>Advisor List 
+          <v-btn
+          to="/advisoradd"
+          class="add-button"
+          text-lg-right
+        >
+        <span class="mr-2">
+        <v-icon>mdi-plus</v-icon>
+        </span>
+        </v-btn>
+        </h4>
         <ul class="list-group" id="advisors-list">
-          <li
-            class="list-group-item"
-            :class="{ active: advisors.id == currentIndex }"
+          <li class="list-group-item"
+            :class="{ active: advisor.id == currentIndex }"
             v-for="advisor in advisors"
             :key="advisor.advisor_id"
             @click="setActiveAdvisor(advisor)"
           >
-            {{ advisors.first_name }}
+            {{ advisor.first_name }} {{ advisor.last_name }} 
           </li>
         </ul>
       </div>
@@ -144,9 +143,9 @@ export default {
       this.currentIndex = -1;
     },
 
-    setActiveAdvisor(advisors) {
-      this.currentAdvisor = advisors;
-      this.currentIndex = advisors.advisor_id;
+    setActiveAdvisor(advisor) {
+      this.currentAdvisor = advisor;
+      this.currentIndex = advisor.advisor_id;
     },
 
     editAdvisor() {

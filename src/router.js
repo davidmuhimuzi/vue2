@@ -45,7 +45,7 @@ export default new Router({
       component: () => import("./components/MajorAdd")
     },
     {
-      path: "/advisors",
+      path: "/advisor",
       name: "advisorlist",
       component: () => import("./components/AdvisorList")
     },

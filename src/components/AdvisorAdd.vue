@@ -5,27 +5,27 @@
     <form @submit.prevent="saveAdvisor">
 
       <v-text-field
-        v-model="advisors.first_name"
+        v-model="advisor.first_name"
         label="First Name"
         required
       ></v-text-field>
 
 
       <v-text-field
-        v-model="advisors.last_name"
+        v-model="advisor.last_name"
         label="Last Name"
         required
       ></v-text-field>
 
       <v-text-field
-        v-model="advisors.dept"
+        v-model="advisor.dept"
         label="Department"
         required
       ></v-text-field>
 
 
       <v-text-field
-        v-model="advisors.email"
+        v-model="advisor.email"
         label="Email"
         required
       ></v-text-field>
@@ -43,14 +43,14 @@ import AdvisorDataService from "../services/AdvisorDataService";
 export default {
   data() {
     return {
-      advisors: {} //keep
+      advisor: {} //keep
 
     };
   },
   methods: {
     saveAdvisor() {
-      console.log(this.advisors)
-      AdvisorDataService.create(this.advisors)
+     
+      AdvisorDataService.create(this.advisor)
         .then(() => {
           this.$router.push({ name: "advisorlist" });
           console.log(this.data)

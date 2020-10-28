@@ -47,7 +47,7 @@
       </v-btn>
   
       <v-btn
-        to="/advisors"
+        to="/advisor"
         text-lg-right
         elevation="6"
       >
