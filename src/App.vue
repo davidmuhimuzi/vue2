@@ -40,7 +40,14 @@
         <v-icon>Courses</v-icon>
         </span>
       </v-btn>
-    </v-app-bar>
+
+      <v-btn
+        to="/studentlist">
+            <span class="mr-2">
+        <v-icon>Students</v-icon>
+        </span>
+      </v-btn>
+     </v-app-bar>
 
     <v-main>
       <router-view/>

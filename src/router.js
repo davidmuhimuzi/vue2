@@ -43,6 +43,25 @@ export default new Router({
       path: "/majoradd",
       name: "majoradd",
       component: () => import("./components/MajorAdd")
+    },
+
+    {
+      path: "/studentlist",
+      name: "studentlist",
+      component: () => import("./components/StudentList")
+      
+    },
+    
+    {
+      path: "/studentedit/:id",  
+      name: "majoredit",
+      component: () => import("./components/Student")
+    },
+
+    {
+      path: "/studentadd",
+      name: "majoradd",
+      component: () => import("./components/StudentAdd")
     }
 
   ]
