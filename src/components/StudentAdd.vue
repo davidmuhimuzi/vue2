@@ -5,6 +5,12 @@
     <form @submit.prevent="saveStudent">
 
       <v-text-field
+        v-model="students.student_id"
+        label="Student ID"
+        required
+      ></v-text-field>
+
+      <v-text-field
         v-model="students.first_name"
         label="First Name"
         required
@@ -26,14 +32,14 @@
 
       <v-text-field
         v-model="students.advisor_id"
-        label="Student ID"
+        label="Advisor ID"
         required
       ></v-text-field>
 
 
       <v-text-field 
         v-model="students.graduation_date" 
-        label="Name" 
+        label="Graduation Date YYYY-MM-DD" 
         required></v-text-field>
 
       <v-text-field

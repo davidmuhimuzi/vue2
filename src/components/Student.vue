@@ -85,8 +85,8 @@ export default {
     };
   },
   methods: {
-    getStudent(id) {
-      StudentDataService.get(id)
+    getStudent(student_id) {
+      StudentDataService.get(student_id)
         .then(response => {
           this.currentStudent = response.data;
           console.log(response.data);
@@ -100,7 +100,7 @@ export default {
       StudentDataService.update(this.currentStudent.student_id, this.currentStudent)
         .then(response => {
           console.log(response.data);
-          this.message = 'The course was updated successfully!';
+          this.message = 'The student was updated successfully!';
           
         })
         .catch(e => {
@@ -109,7 +109,7 @@ export default {
     },
 
     deleteStudent() {
-      StudentDataService.delete(this.currentStudent.id)
+      StudentDataService.delete(this.currentStudent.student_id)
         .then(response => {
           console.log(response.data);
           this.$router.push({ name: "studentlist" });
@@ -121,7 +121,7 @@ export default {
   },
   mounted() {
     this.message = '';
-    this.getStudent(this.$route.params.id);
+    this.getStudent(this.$route.params.student_id);
     
   }
 };

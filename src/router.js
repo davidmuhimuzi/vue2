@@ -53,14 +53,14 @@ export default new Router({
     },
     
     {
-      path: "/studentedit/:id",  
-      name: "majoredit",
+      path: "/studentedit/:student_id",  
+      name: "studentedit",
       component: () => import("./components/Student")
     },
 
     {
       path: "/studentadd",
-      name: "majoradd",
+      name: "studentadd",
       component: () => import("./components/StudentAdd")
     }
 

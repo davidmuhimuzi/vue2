@@ -36,7 +36,7 @@ student
       </h4>
       <ul class="list-group" id="students-list">
         <li class="list-group-item"
-          :class="{ active: student.id == currentIndex }"
+          :class="{ active: student.student_id == currentIndex }"
           v-for="student in students"
           :key="student.student_id"
           @click="setActiveStudent(student)"
@@ -159,7 +159,7 @@ export default {
     },
 
     editStudent() {
-      this.$router.push({ name: 'studentedit', params: { id: this.currentIndex } })
+      this.$router.push({ name: 'studentedit', params: { student_id: this.currentIndex } })
     }
   },
   mounted() {
