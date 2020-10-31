@@ -55,6 +55,16 @@
         <v-icon>Advisors</v-icon>
         </span>
       </v-btn>
+
+      <v-btn
+        to="/semesterlist"
+        text-lg-right
+        elevation="6"
+      >
+      <span class="mr-2">
+      <v-icon>Semesters</v-icon>
+      </span>
+      </v-btn>
       
     </v-app-bar>
 
