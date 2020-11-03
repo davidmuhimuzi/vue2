@@ -21,10 +21,6 @@ class SemesterDataService {
     return http.delete(`semesters/${id}`);
   }
 
-  //deleteAll() {
-  //  return http.delete(`courses`);
-  //}
-
   getBySemesterName(semester_name) {
     return http.get(`semesters?semester_name=${semester_name}`);
   }

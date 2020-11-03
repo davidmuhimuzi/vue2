@@ -43,6 +43,40 @@ export default new Router({
       path: "/majoradd",
       name: "majoradd",
       component: () => import("./components/MajorAdd")
+    },
+    {
+      path: "/advisor",
+      name: "advisorlist",
+      component: () => import("./components/AdvisorList")
+    },
+    {
+      path: "/advisoredit/:id",
+      name: "advisoredit",
+      component: () => import("./components/AdvisorEdit")
+    },
+    {
+      path: "/advisoradd",
+      name: "advisoradd",
+      component: () => import("./components/AdvisorAdd")
+    },
+
+    {
+      path: "/semesterlist",
+      name: "semesterlist",
+      component: () => import("./components/SemestersList")
+      
+    },
+    
+    {
+      path: "/semesteredit/:id",  
+      name: "semesteredit",
+      component: () => import("./components/Semester")
+    },
+
+    {
+      path: "/semesteradd",
+      name: "semesteradd",
+      component: () => import("./components/SemesterAdd")
     }
   ]
 });

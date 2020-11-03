@@ -23,25 +23,49 @@
       Team 3
     </v-toolbar-title>
       </div>
+
       <v-spacer></v-spacer>
+
       <v-btn
         to="/"
         text-lg-right
+        elevation="6"
       >
-        <span class="mr-2">
-        <v-icon>mdi-home</v-icon>
-        </span>
+      <span class="mr-2">
+      <v-icon>Majors</v-icon>
+      </span>
       </v-btn>
-    
-       <v-btn
-        to="/add"
-       
+
+      <v-btn
+        to="/"
         text-lg-right
+        elevation="6"
       >
         <span class="mr-2">
         <v-icon>mdi-plus</v-icon>
         </span>
       </v-btn>
+  
+      <v-btn
+        to="/advisor"
+        text-lg-right
+        elevation="6"
+      >
+        <span class="mr-2">
+        <v-icon>Advisors</v-icon>
+        </span>
+      </v-btn>
+
+      <v-btn
+        to="/semesterlist"
+        text-lg-right
+        elevation="6"
+      >
+      <span class="mr-2">
+      <v-icon>Semesters</v-icon>
+      </span>
+      </v-btn>
+      
     </v-app-bar>
 
     <v-main>
