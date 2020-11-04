@@ -27,7 +27,7 @@
       <v-spacer></v-spacer>
 
       <v-btn
-        to="/"
+        to="/majorlist"
         text-lg-right
         elevation="6"
       >
@@ -42,7 +42,7 @@
         elevation="6"
       >
         <span class="mr-2">
-        <v-icon>mdi-plus</v-icon>
+        <v-icon>Courses</v-icon>
         </span>
       </v-btn>
   

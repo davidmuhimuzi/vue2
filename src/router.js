@@ -11,13 +11,13 @@ export default new Router({
     {
       path: "/",
       name: "list", //keep
-      component: () => import("./components/course/CoursesList")
+      component: () => import("./components/CoursesList")
       
     },
     {
       path: "/courses/:id",  
       name: "course-details",
-      component: () => import("./components/course/Course")
+      component: () => import("./components/Course")
     },
     {
       path: "/add",
