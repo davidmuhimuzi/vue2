@@ -55,7 +55,7 @@ export default new Router({
     {
       path: "/studentedit/:student_id",  
       name: "studentedit",
-      component: () => import("./components/StudentEdit")
+      component: () => import("./components/Student")
     },
 
     {
