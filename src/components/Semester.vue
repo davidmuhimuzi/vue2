@@ -14,14 +14,14 @@
       <v-text-field
         v-model="currentSemester.start_date"
         :rules="[(v) => !!v || 'Semester start date is required']"
-        label="Start Date"
+        label="Start Date (YYYY-MM-DD)"
         required
       ></v-text-field>
 
         <v-text-field
         v-model="currentSemester.end_date"
         :rules="[(v) => !!v || 'Semester end date is required']"
-        label="End Date"
+        label="End Date (YYYY-MM-DD)"
         required
       ></v-text-field>
 

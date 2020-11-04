@@ -11,13 +11,13 @@
 
       <v-text-field 
       v-model="semester.start_date" 
-      label="Start Date" 
+      label="Start Date (YYYY-MM-DD)" 
       required></v-text-field>
 
     
       <v-text-field 
       v-model="semester.end_date" 
-      label="End Date" 
+      label="End Date (YYYY-MM-DD)" 
       required>
       </v-text-field>
     
