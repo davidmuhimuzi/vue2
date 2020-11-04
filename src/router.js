@@ -78,6 +78,25 @@ export default new Router({
       path: "/advisoradd",
       name: "advisoradd",
       component: () => import("./components/AdvisorAdd")
+    },
+
+    {
+      path: "/semesterlist",
+      name: "semesterlist",
+      component: () => import("./components/SemestersList")
+      
+    },
+    
+    {
+      path: "/semesteredit/:id",  
+      name: "semesteredit",
+      component: () => import("./components/Semester")
+    },
+
+    {
+      path: "/semesteradd",
+      name: "semesteradd",
+      component: () => import("./components/SemesterAdd")
     }
 
   ]
