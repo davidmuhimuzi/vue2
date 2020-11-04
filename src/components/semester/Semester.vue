@@ -6,25 +6,22 @@
 
       <v-text-field
         v-model="currentSemester.semester_name"
-        :rules="[(v) => !!v || 'Name is required']"
+        :rules="[(v) => !!v || 'Semester name is required']"
         label="Name"
         required
       ></v-text-field>
 
-      <v-text-field
+        <v-text-field
         v-model="currentSemester.start_date"
-        :rules="[(v) => !!v || 'Semester start date is required']"
-
-        label="Start Date (YYYY-MM-DD)"
-
+        :rules="[(v) => !!v || 'Start date is required']"
+        label="Start Date"
         required
       ></v-text-field>
 
         <v-text-field
         v-model="currentSemester.end_date"
-        :rules="[(v) => !!v || 'Semester end date is required']"
-
-        label="End Date (YYYY-MM-DD)"
+        :rules="[(v) => !!v || 'End date is required']"
+        label="End date"
         required
       ></v-text-field>
 
@@ -72,7 +69,7 @@ export default {
     },
 
     updateSemester() {
-      SemesterDataService.update(this.currentSemester.semester_id, this.currentSemester)
+      SemesterDataService.update(this.currentSemester.id, this.currentSemester)
         .then(response => {
           console.log(response.data);
           this.message = 'The semester was updated successfully!';
@@ -87,7 +84,7 @@ export default {
       SemesterDataService.delete(this.currentSemester.id)
         .then(response => {
           console.log(response.data);
-          this.$router.push({ name: "semesterlist" });
+          this.$router.push({ name: "list" });
         })
         .catch(e => {
           console.log(e);
@@ -96,6 +93,7 @@ export default {
   },
   mounted() {
     this.message = '';
+    console.log(this.$route.params.id);
     this.getSemester(this.$route.params.id);
     
   }

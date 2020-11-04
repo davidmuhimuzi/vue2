@@ -10,7 +10,7 @@ export default new Router({
   routes: [
     {
       path: "/",
-      name: "list",
+      name: "list", //keep
       component: () => import("./components/CoursesList")
       
     },
@@ -98,6 +98,5 @@ export default new Router({
       name: "semesteradd",
       component: () => import("./components/SemesterAdd")
     }
-
   ]
 });

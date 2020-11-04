@@ -4,24 +4,23 @@
 
     <form @submit.prevent="saveSemester">
 
-      <v-text-field 
-      v-model="semester.semester_name" 
-      label="Name" 
-      required></v-text-field>
+      <v-text-field
+        v-model="semester.semester_name"
+        label="Semester Name"
+        required
+      ></v-text-field>
 
-      <v-text-field 
-      v-model="semester.start_date" 
-      label="Start Date (YYYY-MM-DD)" 
-      required></v-text-field>
 
-    
-      <v-text-field 
-      v-model="semester.end_date" 
-      label="End Date (YYYY-MM-DD)" 
-      required>
-      </v-text-field>
-      
-      </form>
+      <div id="dater">
+        <date-picker v-model="start_date" lang="en" type="date" format="YYYY-MM-dd"></date-picker>
+      </div>
+
+       <v-text-field
+        v-model="semester.end_date"
+        label="End Date"
+        required
+      ></v-text-field>
+    </form>
   <v-divider class="my-5"></v-divider>
       <v-btn color="primary" class="mt-3" @click="saveSemester">Submit</v-btn>
 
@@ -32,19 +31,27 @@
 
 <script>
 import SemesterDataService from "../services/SemesterDataService";
+import Datepicker from 'vue2-datepicker'
+
 export default {
+  name: 'Dater',
+  components: {
+    Datepicker
+  },
   data() {
     return {
-      semester: {},
+       date: '',
+      semester: {}
+     
+  
     };
   },
-
   methods: {
-
     saveSemester() {
+      console.log(this.semester)
       SemesterDataService.create(this.semester)
         .then(() => {
-          this.$router.push({ name: "semesterlist" });
+          this.$router.push({ name: "list" });
           console.log(this.data)
         })
         .catch((e) => {
@@ -52,7 +59,7 @@ export default {
         });
     },
     cancel() {
-      this.$router.push({ name: "semesterlist" });
+      this.$router.push({ name: "list" });
     },
   },
 };
