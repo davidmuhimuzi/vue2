@@ -73,7 +73,6 @@
       <v-icon>Semesters</v-icon>
       </span>
       </v-btn>
-            
     </v-app-bar>
 
     <v-main>
