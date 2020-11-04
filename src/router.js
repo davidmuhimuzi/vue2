@@ -55,7 +55,7 @@ export default new Router({
     {
       path: "/studentedit/:student_id",  
       name: "studentedit",
-      component: () => import("./components/Student")
+      component: () => import("./components/StudentEdit")
     },
 
     {
@@ -63,7 +63,7 @@ export default new Router({
       name: "studentadd",
       component: () => import("./components/StudentAdd")
     },
-    
+
     {
       path: "/advisor",
       name: "advisorlist",

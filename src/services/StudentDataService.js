@@ -5,20 +5,20 @@ class StudentDataService {
     return http.get("/students", { params });
   }
 
-  get(id) {
-    return http.get(`students/${id}`);
+  get(student_id) {
+    return http.get(`students/${student_id}`);
   }
 
   create(data) {
     return http.post("students/", data);
   }
 
-  update(id, data) {
-    return http.put(`students/${id}`, data);
+  update(student_id, data) {
+    return http.put(`students/${student_id}`, data);
   }
 
-  delete(id) {
-    return http.delete(`students/${id}`);
+  delete(student_id) {
+    return http.delete(`students/${student_id}`);
   }
 }
 

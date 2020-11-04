@@ -1,8 +1,5 @@
 <template>
-  
-  <div class="list row">
-    
-student
+<div class="list row">
      <div class="col-md-12">
       <div class="mb-3">
         Student per Page:
@@ -64,13 +61,13 @@ student
           <label><strong>Major: </strong></label> {{ currentStudent.major }}
         </div>
         <div>
-          <label><strong>Advisor: </strong></label> {{ currentStudent.advisor_id }}
+          <label><strong>Advisor ID: </strong></label> {{ currentStudent.advisor_id }}
         </div>
         <div>
-          <label><strong>Advisor: </strong></label> {{ currentStudent.graduation_date }}
+          <label><strong>Graduation Date: </strong></label> {{ currentStudent.graduation_date }}
         </div>
         <div>
-          <label><strong>Advisor: </strong></label> {{ currentStudent.email }}
+          <label><strong>Email: </strong></label> {{ currentStudent.email }}
         </div>
         
         <v-btn @click="editStudent">Edit and Delete</v-btn>
@@ -159,7 +156,10 @@ export default {
     },
 
     editStudent() {
-      this.$router.push({ name: 'studentedit', params: { student_id: this.currentIndex } })
+      this.$router.push({ 
+        name: 'studentedit', 
+        params: { student_id: this.currentIndex }, 
+        })
     }
   },
   mounted() {
