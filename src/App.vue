@@ -45,6 +45,14 @@
         <v-icon>Courses</v-icon>
         </span>
       </v-btn>
+
+      <v-btn
+        to="/studentlist">
+            <span class="mr-2">
+        <v-icon>Students</v-icon>
+        </span>
+      </v-btn>
+
   
       <v-btn
         to="/advisor"
@@ -65,7 +73,7 @@
       <v-icon>Semesters</v-icon>
       </span>
       </v-btn>
-      
+            
     </v-app-bar>
 
     <v-main>
