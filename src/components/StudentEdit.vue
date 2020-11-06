@@ -5,7 +5,7 @@
         <v-text-field
         v-model="currentStudent.student_id"
         :rules="[(v) => !!v || 'Student ID is required']"
-        label="Dept"
+        label="Student ID"
         required
       ></v-text-field>
 
@@ -26,26 +26,26 @@
         <v-text-field
         v-model="currentStudent.major"
         :rules="[(v) => !!v || 'Major is required']"
-        label="Dept"
+        label="Major"
         required
       ></v-text-field>
               <v-text-field
         v-model="currentStudent.advisor_id"
         :rules="[(v) => !!v || 'Advisor ID is required']"
-        label="Dept"
+        label="Advisor ID"
         required
       ></v-text-field>
               <v-text-field
         v-model="currentStudent.graduation_date"
         :rules="[(v) => !!v || 'Graduation Date is required']"
-        label="Dept"
+        label="Graduation Date (YYYY-MM-DD)"
         required
       ></v-text-field>
 
         <v-text-field
         v-model="currentStudent.email"
         :rules="[(v) => !!v || 'Email is required']"
-        label="Email"
+        label="Student Email"
         required
       ></v-text-field>
 
