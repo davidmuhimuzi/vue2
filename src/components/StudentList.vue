@@ -38,7 +38,7 @@
           :key="student.student_id"
           @click="setActiveStudent(student)"
         >
-          {{ student.first_name}} {{student.last_name }}
+          {{ student.first_name }} {{ student.last_name }}
         </li>
       </ul>
 
