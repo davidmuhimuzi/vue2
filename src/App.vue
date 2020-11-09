@@ -73,6 +73,17 @@
       <v-icon>Semesters</v-icon>
       </span>
       </v-btn>
+
+      <v-btn
+        to="/stucourseslist/1"
+        text-lg-right
+        elevation="6"
+      >
+        <span class="mr-2">
+        <v-icon>Course Plan</v-icon>
+        </span>
+      </v-btn>
+
     </v-app-bar>
 
     <v-main>

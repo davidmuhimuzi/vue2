@@ -1,27 +1,11 @@
 <template>
 <div class="list row">
-     <div class="col-md-12">
-      <div class="mb-3">
-        Student per Page:
-        <select v-model="pageSize" @change="handlePageSizeChange($event)">
-          <option v-for="size in pageSizes" :key="size" :value="size">
-            {{ size }}
-          </option>
-        </select>
-      </div>
-        <b-pagination
-        v-model="page"
-        :total-rows="count"
-        :per-page="pageSize"
-        pills
-        @change="handlePageChange"
-      ></b-pagination>
-    </div>
-
     <div class="col-md-6">
-      <h4>Students List 
+        <v-btn @click="download()">Download PDF </v-btn>
+        <br>
+      <h2>Course Plan for 
         <v-btn
-          to="/studentadd"
+          to="/stucoursesadd"
           class="add-button"
           text-lg-right
         >
@@ -29,7 +13,8 @@
         <v-icon>mdi-plus</v-icon>
         </span>
         </v-btn>
-      </h4>
+      </h2>
+
       <ul class="list-group" id="students-list">
         <li class="list-group-item"
           :class="{ active: student.student_id == currentIndex }"
@@ -74,7 +59,7 @@
       </div>
       <div v-else>
         <br />
-        <p>Please click on a Student.</p>
+        <p>Please click on a Semester to Add a Course to.</p>
       </div>
     </div>
   </div>
@@ -82,6 +67,10 @@
 
 <script>
 import StudentDataService from "../services/StudentDataService";
+import StuCourseDataService from "../services/StuCourseDataService";
+
+import jsPDF from 'jspdf';
+import domtoimage from "dom-to-image";
 
 export default {
   name: "students-list",
@@ -99,6 +88,32 @@ export default {
     };
   },
   methods: {
+      download() {
+    domtoimage
+    .toPng(this.$refs.content)
+    .then(function(dataUrl) {
+      var img = new Image();
+      img.src = dataUrl;
+      const doc = new jsPDF({
+        orientation: "portrait",
+        format: [300, 1400]
+      });
+      doc.addImage(img, "JPEG", 20, 20);
+      const date = new Date();
+      const filename =
+        "Courseplan_" +
+        date.getFullYear() +
+        ("0" + (date.getMonth() + 1)).slice(-2) +
+        ("0" + date.getDate()).slice(-2) +
+        ("0" + date.getHours()).slice(-2) +
+        ("0" + date.getMinutes()).slice(-2) +
+        ".pdf";
+      doc.save(filename);
+    })
+    .catch(function(error) {
+      console.error("oops, something went wrong!", error);
+    });
+  },
     getRequestParams(page, pageSize) {
       let params = {};
 
