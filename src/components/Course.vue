@@ -66,7 +66,7 @@
               class="mr-2"
               @click="deleteMajorForCourse(item)"
             >
-              mdi-trash-can-outline
+              Delete
             </v-icon>
         </template>
       </v-data-table>
@@ -120,7 +120,7 @@ export default {
       message: '',
       headers: [
                 {
-                    text: 'major',
+                    text: 'Major',
                     align: 'left',
                     value: 'major.major_name',
                 },
@@ -180,6 +180,17 @@ export default {
         })
         .catch(error => {
             this.message = error.response.data.message;
+        });
+    },
+
+    getMajor(id) {
+      MajorDataService.get(id)
+        .then(response => {
+          console.log(response.data.major_name);
+          return response.data.major_name;
+        })
+        .catch(e => {
+          console.log(e);
         });
     },
 
