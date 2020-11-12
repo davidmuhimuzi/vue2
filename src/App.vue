@@ -75,7 +75,7 @@
       </v-btn>
 
       <v-btn
-        to="/stucourseslist/1"
+        to="/stucourseslist"
         text-lg-right
         elevation="6"
       >
