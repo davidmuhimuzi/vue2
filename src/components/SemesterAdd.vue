@@ -20,12 +20,7 @@
       label="End Date (YYYY-MM-DD)" 
       required>
       </v-text-field>
-    
-
-    
-
       
-
       </form>
   <v-divider class="my-5"></v-divider>
       <v-btn color="primary" class="mt-3" @click="saveSemester">Submit</v-btn>

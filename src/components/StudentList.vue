@@ -20,7 +20,7 @@
 
     <div class="col-md-6">
       
-      <h4>Students List 
+      <h4>List of Students!
         <v-btn
           to="/studentadd"
           class="add-button"
@@ -38,7 +38,7 @@
           :key="student.student_id"
           @click="setActiveStudent(student)"
         >
-          {{ student.first_name }}
+          {{ student.first_name }} {{ student.last_name }}
         </li>
       </ul>
 
