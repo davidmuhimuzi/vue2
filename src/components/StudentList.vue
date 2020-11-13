@@ -20,7 +20,7 @@
 
     <div class="col-md-6">
       
-      <h4>List of Students!
+      <h4>Students List
         <v-btn
           to="/studentadd"
           class="add-button"
