@@ -35,7 +35,7 @@ let baseRoutes = [
   routes: [
     */
     {
-      path: "/",
+      path: "/courses",
       name: "list", //keep
       component: () => import("./components/CoursesList")
       

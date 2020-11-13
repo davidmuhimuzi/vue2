@@ -8,7 +8,7 @@
 </template>
 
 <script>
-import router from './router.js';
+import router from '@/router.js';
 export default {
   name: 'login_signup_social',
   methods: {
