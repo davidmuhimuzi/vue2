@@ -99,14 +99,15 @@ export default new Router({
       component: () => import("./components/SemesterAdd")
     },
     {
-      path: "/stucourseslist/:id",
+      path: "/stucourseslist",
       name: "courseplan",
       component: () => import("./components/StuCourseList")
     },
     {
-      path: "/stucoursesadd/:id",
+      path: "/stucoursesadd",
       name: "stucourseadd",
       component: () => import("./components/StuCourseAdd")
+      //add id to the end if we want to carry over student info
     },
     {
       path: "/stucoursesedit/:id",
