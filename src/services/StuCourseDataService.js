@@ -1,9 +1,10 @@
 import http from "../http-common";
 
 class StuCourseDataService {
-    getAll(params) {
-      return http.get("/studentcourses", { params });
-    }
+  getAll() {
+    return http.get("/studentcourses");
+  }
+  
     getAllPerStudent(student_id) {
         return http.get(`studentcourses?student_id=${student_id}`);
       }
