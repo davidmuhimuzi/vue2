@@ -26,7 +26,6 @@
 
       <div class="col-md-12">
         <div class="mb-3">
-          <v-btn @click="download()">Download PDF </v-btn>
           <br />
           Courses per Page:
           <select v-model="pageSize" @change="handlePageSizeChange($event)">
@@ -114,8 +113,6 @@
 
 <script>
 import CourseDataService from "../services/CourseDataService";
-import jsPDF from 'jspdf';
-import domtoimage from "dom-to-image";
 
 
 export default {
@@ -135,34 +132,7 @@ export default {
     };
   },
   methods: {
-  download() {
-    domtoimage
-    .toPng(this.$refs.content)
-    .then(function(dataUrl) {
-      var img = new Image();
-      img.src = dataUrl;
-      const doc = new jsPDF({
-        orientation: "portrait",
-        format: [300, 1400]
-      });
-      doc.addImage(img, "JPEG", 20, 20);
-      const date = new Date();
-      const filename =
-        "Courseplan_" +
-        date.getFullYear() +
-        ("0" + (date.getMonth() + 1)).slice(-2) +
-        ("0" + date.getDate()).slice(-2) +
-        ("0" + date.getHours()).slice(-2) +
-        ("0" + date.getMinutes()).slice(-2) +
-        ".pdf";
-      doc.save(filename);
-    })
-    .catch(function(error) {
-      console.error("oops, something went wrong!", error);
-    });
-  },
-    
-
+  
     getRequestParams(searchDept, page, pageSize) {
       let params = {};
 

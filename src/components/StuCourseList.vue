@@ -1,35 +1,21 @@
 <template>
 <div class="list row">
-     <div class="col-md-12">
-      <div class="mb-3">
-        Student per Page:
-        <select v-model="pageSize" @change="handlePageSizeChange($event)">
-          <option v-for="size in pageSizes" :key="size" :value="size">
-            {{ size }}
-          </option>
-        </select>
-      </div>
-        <b-pagination
-        v-model="page"
-        :total-rows="count"
-        :per-page="pageSize"
-        pills
-        @change="handlePageChange"
-      ></b-pagination>
-    </div>
-
     <div class="col-md-6">
-      <h4>Students List 
+        <v-btn @click="download()">Download PDF </v-btn>
+        <br>
+      <h2>Course Plan for OC Students
         <v-btn
-          to="/studentadd"
+          to="/stucoursesadd"
           class="add-button"
-          text-lg-right
+          text-lg-right 
         >
         <span class="mr-2">
         <v-icon>mdi-plus</v-icon>
         </span>
         </v-btn>
-      </h4>
+        </h2>
+      <!-- >
+      <h4> {{students.first_name}} {{students.last_name}} {{status}} {{grade}}</h4>
       <ul class="list-group" id="students-list">
         <li class="list-group-item"
           :class="{ active: student.student_id == currentIndex }"
@@ -37,14 +23,13 @@
           :key="student.student_id"
           @click="setActiveStudent(student)"
         >
-          {{ student.first_name }} {{ student.last_name }}
+          {{ student.first_name }} {{ student.last_name }} 
         </li>
-      </ul>
-
+      </ul> -->
       
     </div>
 
-    <div class="col-md-4">
+<!--<div class="col-md-4">
       <div v-if="currentStudent">
         <h4>Student</h4>
         <div>
@@ -74,14 +59,19 @@
       </div>
       <div v-else>
         <br />
-        <p>Please click on a Student.</p>
+        <p>Please click on a Semester to Add a Course to.</p>
       </div>
-    </div>
+    </div-->
   </div>
 </template>
 
 <script>
 import StudentDataService from "../services/StudentDataService";
+//import StuCourseDataService from "../services/StuCourseDataService";
+//import MajorDataService from "../services/MajorDataService";
+//import SemesterDataService from "../services/SemesterDataService";
+import jsPDF from 'jspdf';
+import domtoimage from "dom-to-image";
 
 export default {
   name: "students-list",
@@ -91,14 +81,36 @@ export default {
       currentStudent: null,
       currentIndex: -1,
 
-      page: 1,
-      count: 0,
-      pageSize: 3,
-
-      pageSizes: [5,10,15],
+  
     };
   },
   methods: {
+      download() {
+    domtoimage
+    .toPng(this.$refs.content)
+    .then(function(dataUrl) {
+      var img = new Image();
+      img.src = dataUrl;
+      const doc = new jsPDF({
+        orientation: "portrait",
+        format: [300, 1400]
+      });
+      doc.addImage(img, "JPEG", 20, 20);
+      const date = new Date();
+      const filename =
+        "Courseplan_" +
+        date.getFullYear() +
+        ("0" + (date.getMonth() + 1)).slice(-2) +
+        ("0" + date.getDate()).slice(-2) +
+        ("0" + date.getHours()).slice(-2) +
+        ("0" + date.getMinutes()).slice(-2) +
+        ".pdf";
+      doc.save(filename);
+    })
+    .catch(function(error) {
+      console.error("oops, something went wrong!", error);
+    });
+  },
     getRequestParams(page, pageSize) {
       let params = {};
 
@@ -143,12 +155,6 @@ export default {
       this.retrieveStudents();
     },
 
-    refreshList() {
-      this.retrieveStudents();
-      this.currentStudent = null;
-      this.currentIndex = -1;
-    },
-
     setActiveStudent(student) {
       this.currentStudent = student;
       this.currentIndex = student.student_id;
@@ -178,4 +184,5 @@ export default {
   margin-left:71%; 
   margin-right:0;
 }
-</style>
+</style-->
+
