@@ -27,6 +27,16 @@
       <v-spacer></v-spacer>
 
       <v-btn
+        to="/home"
+        text-lg-right
+        elevation="6"
+      >
+      <span class="mr-2">
+      <v-icon>Home</v-icon>
+      </span>
+      </v-btn>
+
+      <v-btn
         to="/majorlist"
         text-lg-right
         elevation="6"
