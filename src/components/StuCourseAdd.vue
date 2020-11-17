@@ -5,22 +5,22 @@
     <form @submit.prevent="savestucourses">
     
       <!--no data available-->
-     <v-select :items="students" 
+      <v-select :items="students" 
               label="Students"
-              item-text ="example"
-              item-value= "students.student_id" 
+              item-text ="first_name"
+              item-value= "student_id" 
               v-model="courses_for_student.student_id" />
-   <!--object object-->
-    <v-select :items="semesters"
+      <!--object object-->
+      <v-select :items="semesters"
               label="Semesters"
-              item-text ="semester_id"
-              item-value= "semesters.semester_id" 
-              v-model="semesters.semester_id" />
+              item-text ="semester_name"
+              item-value= "semester_id" 
+              v-model="courses_for_student.semester" />
        
-       <v-select :items="courses"
+      <v-select :items="courses"
               label="Courses"
-              item-text ="ex"
-              item-value= "courses.id" 
+              item-text ="name"
+              item-value= "id" 
               v-model="courses_for_student.course_id" />
              
 
@@ -46,8 +46,8 @@
 <script>
 
 import StuCourseDataService from "../services/StuCourseDataService";
-//import SemesterDataService from "../services/SemesterDataService";
-//import StudentDataService from "../services/StudentDataService";
+import SemesterDataService from "../services/SemesterDataService";
+import StudentDataService from "../services/StudentDataService";
 import CourseDataService from "../services/CourseDataService";
 export default {
   //props: ['id'],
@@ -58,57 +58,43 @@ export default {
       courses: [],
       semesters: [],
 
-      //grades to choose from
     };
   },
   created() {
 
-     /*StudentDataService.getAll()
+    StudentDataService.getAll()
       .then(response => {
-        this.students.forEach(function (students) {
-                  students.ex = students[0].student_id;
-                })
-        //this.students.student_id = response.data;
-        //this.courses_for_student.student_id = response.data;
-        console.log(response.data); //this works
+        this.students = response.data.students;
+        console.log(this.students);
       })
       .catch((e) => {
         console.log(e);
       });
     //mine
-   SemesterDataService.getAll()
- 
+    SemesterDataService.getAll()
       .then((response) => {
-           this.courses_for_student.semesters = response.data;
+        this.semesters = response.data.semesters;
         console.log(this.semesters);
       })
       .catch((e) => {
         console.log(e);
       });
-  */
 
     CourseDataService.getAll()
       .then(response => {
-        this.courses = response.data;
-        this.courses.forEach(function (course) {
-                course.ex = course.number+" "+course.name;
-                })
-        //put array to display here
-        //console.log(response.data);
+        this.courses = response.data.courses;
+        console.log(this.courses);
       })
       .catch((e) => {
         console.log(e);
       });
-    
-
-  
   },
  
   methods: {
     //this hasnt been worked on since i havent even gotten the data to come up
     savestucourses() {
       //this.courses_for_student.student_id = this.student_id;
-
+      console.log(this.courses_for_student);
       StuCourseDataService.create(this.courses_for_student)
         .then(() => {
           this.$router.push({ name: "courseplan" });
