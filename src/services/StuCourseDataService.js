@@ -1,13 +1,13 @@
 import http from "../http-common";
 
 class StuCourseDataService {
-  getAll() {
-    return http.get("/studentcourses");
-  }
+    getAll() {
+      return http.get("/studentcourses");
+    }
   
     getAllPerStudent(student_id) {
-        return http.get(`studentcourses?student_id=${student_id}`);
-      }
+        return http.get(`studentcourses?student_id=` + student_id);
+    }
   
     get(id) {
       return http.get(`studentcourses/${id}`);

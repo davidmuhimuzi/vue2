@@ -15,7 +15,7 @@
               label="Semesters"
               item-text ="semester_name"
               item-value= "semester_id" 
-              v-model="courses_for_student.semester" />
+              v-model="courses_for_student.semester_id" />
        
       <v-select :items="courses"
               label="Courses"
