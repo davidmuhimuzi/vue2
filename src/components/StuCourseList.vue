@@ -1,4 +1,5 @@
 <template>
+<div ref="content">
 <div class="list row">
     <div class="col-md-3"></div>
     <div class="col-md-6">
@@ -34,6 +35,7 @@
       ></v-data-table>
       
     </div>
+  </div>
   </div>
 </template>
 
