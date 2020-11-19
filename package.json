@@ -13,6 +13,7 @@
     "core-js": "^3.6.5",
     "dom-to-image": "^2.6.0",
     "jspdf": "^2.1.1",
+    "jspdf-autotable": "^3.5.13",
     "vue": "^2.6.11",
     "vue-router": "^3.4.3",
     "vue2-datepicker": "^3.6.3",
