@@ -93,11 +93,9 @@ export default {
         img.src = dataUrl;
         const doc = new jsPDF({
           orientation: "portrait",
-          format: [300, 1400]
+          format: [300, 1000]
+          //format: [300, 1400]
         });
-        doc.autoTable({
-        theme: 'striped'
-    });
         doc.addImage(img, "JPEG", 20, 20);
         const date = new Date();
         const filename =
