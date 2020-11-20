@@ -46,6 +46,7 @@ import StuCourseDataService from "../services/StuCourseDataService";
 //import SemesterDataService from "../services/SemesterDataService";
 import jsPDF from 'jspdf';
 import domtoimage from "dom-to-image";
+import autoTable from 'jspdf-autotable';
 
 export default {
   name: "students-list",
@@ -94,6 +95,9 @@ export default {
           orientation: "portrait",
           format: [300, 1400]
         });
+        doc.autoTable({
+        theme: 'striped'
+    });
         doc.addImage(img, "JPEG", 20, 20);
         const date = new Date();
         const filename =
