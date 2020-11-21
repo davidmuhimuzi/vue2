@@ -46,7 +46,7 @@ import StuCourseDataService from "../services/StuCourseDataService";
 //import SemesterDataService from "../services/SemesterDataService";
 import jsPDF from 'jspdf';
 import domtoimage from "dom-to-image";
-import autoTable from 'jspdf-autotable';
+
 
 export default {
   name: "students-list",
